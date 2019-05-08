@@ -5,7 +5,7 @@ const static = express.static(__dirname + "/public");
 const session = require('express-session');
 var cookieParser = require('cookie-parser');
 
-const configRoutes = require("./routes");
+const configRoutes = require("./routes/index");
 const exphbs = require("express-handlebars");
 const handlebars = require("handlebars");
 
