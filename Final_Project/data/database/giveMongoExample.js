@@ -1,0 +1,10 @@
+const bookData = require("./storeBooks");
+// const RecData = require("./Recommendation");
+// const comData = require("./comments");
+bookData.CreateBook("A Song of Ice and Fire","George","Martin","John Doe","High Fantasy",4.5);
+bookData.CreateBook("The Problems of Philosophy", " Bertrand", "Russell", "Jack", "Fiction", 4);
+bookData.CreateBook("Gulliver's Travels into Several Remote Nations of the World", "Jonathan", "Swift", "Bob", "Fiction CLaasic", 3.5);
+bookData.CreateBook("The Vampyre", "John William", "Polidori", "Bill", "Horror", 4);
+bookData.CreateBook("The Strange Case of Dr Jekyll and Mr. Hyde Study Guide 3", "James", "Del Mcjones", "Diao", "Horror Classic", 5);
+bookData.CreateBook("Antic Hay", "Aldous", "Huxley", "William", "Humor", 3);
+bookData.CreateBook("Poems", "Victor", "Hugo", "Mike", "Poetry", 2.5);

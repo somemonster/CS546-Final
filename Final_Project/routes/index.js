@@ -1,4 +1,5 @@
 const signupUser = require("../data/database/storeUsers");
+const book = require("../data/database/storeBooks");
 const express = require("express");
 router = express();
 
@@ -26,7 +27,7 @@ router.use(async function (req, res, next) {
         try {
             // console.log(req.body.username + '    ' + req.body.password)
             if (!(req.body.username && req.body.password)) {
-                req.status(401).render("page/error", {
+                res.status(401).render("page/error", {
                     error: "You must input userName and password!"
                 });
                 return;
@@ -43,41 +44,13 @@ router.use(async function (req, res, next) {
             } else {
                 req.session.username = username;
                 req.session.password = password;
-                res.render("page/mainPage", log);
-            }
-        } catch (errorMessage) {
-            console.log(errorMessage)
-            res.status(500).json({
-                error: errorMessage
-            });
-        }
-    } else {
-        next();
-    }
-})
-
-router.use(async function (req, res, next) {
-    if (req.url === '/private') {
-        try {
-            if (req.session.username) {
-                let name = req.session.username;
-                let password = req.session.password;
-                let log = await signupUser.login(name, password);
-                if (!log) {
-                    res.status(401).render("page/error", {
-                        error: "No any matched user!"
-                    });
-                    return;
-                } else {
-                    res.render("page/private", log);
-                }
-
-            } else {
-                res.status(403).render("page/error", {
-                    error: "no login information!"
+                var arr = await book.sortRating();
+                res.render("page/mainPage", {
+                    bookName : arr
                 });
             }
         } catch (errorMessage) {
+            // console.log(errorMessage)
             res.status(500).json({
                 error: errorMessage
             });
@@ -86,6 +59,26 @@ router.use(async function (req, res, next) {
         next();
     }
 })
+
+router.get('/booksProfile/:id', async (req, res) =>{
+    try {
+        var _book = await book.getBookById(req.params.id);
+        res.render("page/booksProfile", 
+            _book
+        )
+    } catch (errorMessage) {
+        res.status(500).json({
+            error: errorMessage
+        });
+    }
+
+})
+
+// router.use(async function (req, res, next){
+//     if(req.url == '/booksProfile'){
+
+//     }
+// })
 
 router.use(function (req, res, next) {
     if (req.url === '/logout') {
@@ -115,7 +108,7 @@ router.use(async function (req, res, next) {
                 // res.status(200).json(_signupUser);
             }
         } catch (errorMessage) {
-            console.log(errorMessage)
+            // console.log(errorMessage)
             res.status(500).json({
                 error: errorMessage
             })

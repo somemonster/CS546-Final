@@ -3,16 +3,22 @@
           <h1>Welcome to the Online Book Store</h1>
      </header>
 
-     <form method="post" id="bookSearch">              {{! This used for seach book by Title, Author, Publisher, Genre}}
-          <label for="submit">input</label>
+     <form action="/mainPage" method="post" id="search_form"> {{! This used for seach book by Title, Author, Publisher, Genre}}
+          <label for="submit">search: </label>
           <input type="search" name="search" id="search">
           <button type="submit" value="submit" id="submit">Submit</button>
      </form>
 
-     <ul>                          {{!This will show featured book}}                    
-          {{#each bookname}}
+<div>
+    <select name="All">
+        <option value="newbooks" id = "newbooks"> new books</option>
+        <option value="popularBooks" id = "popularBooks">popular Books</option>
+    </select>
+</div>
+
+     <ul> {{!This will show featured book}} {{#each bookName}}
           <li>
-               <a href="/booksProfile/{{_id}}">{{Tittle}}</a>
+               <a href="/booksProfile/{{_id}}">{{Title}}</a>
           </li>
           {{/each}}
      </ul>
