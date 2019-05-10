@@ -3,13 +3,14 @@ const books = mongoCollection.books;
 const ObjectId = require("mongodb").ObjectID;
 
 module.exports = {
-     async CreateBook(Title, Author_FirstName, Author_LastName, Publisher, Genre, Rating){
+     async CreateBook(Title, Author_FirstName, Author_LastName, Publisher, Genre, popular, published){
           if(!Title || typeof(Title) != "string") throw "The title is a must and the type of title need to be string.";
           if(!Author_FirstName || typeof(Author_FirstName) != "string") throw "Author_Firstname is a must and the type of Author_FirstName need to be a string";
           if(!Author_LastName || typeof(Author_LastName) != "string") throw "Author_LastName is a must and the type of Autho_LastName need to be string.";
           if(!Publisher || typeof(Publisher) != "string") throw "Publisher is a must and the type of Publisher need to be string.";
           if(!Genre || typeof(Genre) != "string") throw "Genre is a must and the type of Genre need to be string.";
-          if(!Rating || typeof(Rating) != "number") throw "Rating is a must and the type of Rateing need to be number.";
+          if(!popular || typeof(popular) != "number") throw "popular is a must and the type of popluar need to be number";
+          if(!published || typeof(published) != "number") throw " published is a must and the type of published need to be number";
 
           let newbook = {
                Title : Title,
@@ -17,7 +18,9 @@ module.exports = {
                Author_LastName : Author_LastName,
                Publisher : Publisher,
                Genre : Genre,
-               Rating : Rating,
+               popular : popular,
+               published : published,
+               Rating : [],
                Recommendations : [],
                Comments : []
           }
@@ -72,16 +75,25 @@ module.exports = {
           const updateInfo = await _conlection.updateOne({_id: ObjectId(id)}, updateAnimal);
       },
 
-    //   async getRatingByTitle(Title){
-    //     if(!Title) throw "You need to give a title.";
-    //     if(!/^[a-zA-Z]{50}$/.test(Title)) throw "The title need to be character.";
-    //     const _conlection = await books();
-    //     const _book = await _conlection.findOne({
-    //         Title : Title
-    //     })
-    //     if(_book === null) throw "There is no book with this Title.";
-    //     return _book.Rating;
-    //   }
+      async updateRating(id, rating){
+        if(!id) throw "You need to give an id";
+        if(!/^[a-fA-F0-9]{24}$/.test(id)) throw "The id need to be ObjectId";
+        if(!rating || typeof rating !="string") throw "You need to give a new rating and the type of rating need to be string";
+  
+        const _conlection = await books();
+        var bookRating = await this.getBookById(id);
+        bookRating.Rating.push(rating);
+        let updateRating = { $set: {"Rating" : bookRating.Rating}};
+       
+        const updateInfo = await _conlection.updateOne({_id: ObjectId(id)}, updateRating);
+
+        if(updateInfo.updatedCount == 0) throw " update rating unsuccessfully";
+
+        return await this.getBookById(id);
+
+    },
+
+
     async sortRating(){
         const _conlection = await books();
         return await _conlection.find({},{"Title":1}).sort({"Rating" : -1}).toArray();

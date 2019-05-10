@@ -20,7 +20,7 @@ module.exports = {
             Email: Email,
             firstname: firstname,
             lastname: lastname,
-            hash_password: hash_password
+            hash_password: hash_password,
         }
         const _conlection = await users();
         const insertInfo = await _conlection.insertOne(newUsers);

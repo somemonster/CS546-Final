@@ -22,10 +22,16 @@ window.onload = function(){
 		
 		star[i].onclick = function(){
 			temp = this.index + 1;
-			document.getElementsByTagName('p')[0].innerHTML = temp + ' star';
+			
 			current(temp);
+			$.post('/Rating', {
+				"temp" : temp,
+				"_id" : $('#bookId').html()
+				}, function (data) {
+				});
 		}
 	}
+
 	//clear
 	function clear(){
 		for(var i = 0, len = star.length; i < len; i++){

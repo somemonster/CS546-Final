@@ -62,9 +62,9 @@ router.use(async function (req, res, next) {
 
 router.get('/booksProfile/:id', async (req, res) =>{
     try {
-        var _book = await book.getBookById(req.params.id);
+        var book_1 = await book.getBookById(req.params.id);
         res.render("page/booksProfile", 
-            _book
+            book_1
         )
     } catch (errorMessage) {
         res.status(500).json({
@@ -72,6 +72,18 @@ router.get('/booksProfile/:id', async (req, res) =>{
         });
     }
 
+})
+
+router.post('/Rating', async (req, res) =>{
+    try{
+        var book_2 = await book.getBookById(req.body._id);
+        book.updateRating(req.body._id,req.body.temp)
+    }catch(errorMessage){
+        // console.log(errorMessage)
+        res.status(500).json({
+            error : errorMessage
+        });
+    }
 })
 
 // router.use(async function (req, res, next){
