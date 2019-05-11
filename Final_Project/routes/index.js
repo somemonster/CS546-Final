@@ -1,6 +1,7 @@
 const signupUser = require("../data/database/storeUsers");
 const book = require("../data/database/storeBooks");
 const express = require("express");
+const Select = require("../public/selectOrder");
 router = express();
 
 router.use(function (req, res, next) {
@@ -44,7 +45,7 @@ router.use(async function (req, res, next) {
             } else {
                 req.session.username = username;
                 req.session.password = password;
-                var arr = await book.sortRating();
+                var arr = await book.getAll();
                 res.render("page/mainPage", {
                     bookName : arr
                 });
@@ -83,6 +84,19 @@ router.post('/Rating', async (req, res) =>{
         res.status(500).json({
             error : errorMessage
         });
+    }
+})
+
+router.post('/select', async (req, res) =>{
+    try{
+        // console.log(req.body._id);
+        var arr = await book.select(req.body._id);
+        // console.log(arr)
+        res.json(arr);
+    }catch(errorMessage){
+        res.status(500).json({
+            error : errorMessage
+        })
     }
 })
 

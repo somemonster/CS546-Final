@@ -22,7 +22,6 @@ window.onload = function(){
 		
 		star[i].onclick = function(){
 			temp = this.index + 1;
-			
 			current(temp);
 			$.post('/Rating', {
 				"temp" : temp,

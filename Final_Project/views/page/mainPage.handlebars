@@ -9,16 +9,16 @@
           <button type="submit" value="submit" id="submit">Submit</button>
      </form>
 
+<script src = "../public/selectOrder.js"></script>
 <div>
-    <select name="All">
-        <option value="newbooks" id = "newbooks"> new books</option>
-        <option value="popularBooks" id = "popularBooks">popular Books</option>
+    <select name="All" id = "select" onchange="select()">
+        <option value="newbooks" id = "newBooks" >new_books</option>
+        <option value="popularBooks" id = "popularBooks">popular_books</option>
         <option value="average" id = "average">average</option>
-        <option value="user_number" id = "user_number">user_number</option>
     </select>
 </div>
 
-     <ul> {{!This will show featured book}} {{#each bookName}}
+     <ul id="bookList"> {{!This will show featured book}} {{#each bookName}}
           <li>
                <a href="/booksProfile/{{_id}}">{{Title}}</a>
           </li>
