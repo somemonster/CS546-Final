@@ -1,0 +1,27 @@
+<div>
+     <header>
+          <h1>Welcome to the Online Book Store</h1>
+     </header>
+
+     <form action="/mainPage" method="post" id="search_form"> {{! This used for seach book by Title, Author, Publisher, Genre}}
+          <label for="submit">search: </label>
+          <input type="search" name="search" id="search">
+          <button type="submit" value="submit" id="submit">Submit</button>
+     </form>
+
+<div>
+    <select name="All">
+        <option value="newbooks" id = "newbooks"> new books</option>
+        <option value="popularBooks" id = "popularBooks">popular Books</option>
+        <option value="average" id = "average">average</option>
+        <option value="user_number" id = "user_number">user_number</option>
+    </select>
+</div>
+
+     <ul> {{!This will show featured book}} {{#each bookName}}
+          <li>
+               <a href="/booksProfile/{{_id}}">{{Title}}</a>
+          </li>
+          {{/each}}
+     </ul>
+</div>
