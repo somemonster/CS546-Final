@@ -1,0 +1,50 @@
+<div>
+     <header>Book_Information</header>
+     <tittle>book_information</tittle>
+     <main>
+          <dl>
+               <dt id='id1'>ID:</dt>
+               <dd id="bookId">{{_id}}</dd>
+               <dt id='Title1'>Title:</dt>
+               <dd id='Title2'>{{Title}}</dd>
+               <dt id='First1'>Author Firstname:</dt>
+               <dd id='First2'>{{Author_FirstName}}</dd>
+               <dt id='Last1'>Author LastName:</dt>
+               <dd id='Last2'>{{Author_LastName}}</dd>
+               <dt id='Publisher1'>Publisher:</dt>
+               <dd d='Publisher2'>{{Publisher}}</dd>
+               <dt id='Genre1'>Genre:</dt>
+               <dd id='Genre2'>{{Genre}}</dd>
+               <dt id='Rating1'>Rating:</dt>
+               <dd id='Rating2'>{{Rating}}</dd>
+               <!-- 我想通过下面button的事件来改变js文件中执行的部分 -->
+               <input type="button" value="Recommendations" onclick='javascrtpt:getFamilar()' />
+               <script type="text/javascript">
+                    function getFamilar() {
+                         jQuery.get('/booksSuggest/{{_id}}').then(res => location.href = res.target);
+                    }
+               </script>
+               <form id="form1">
+                    <table>
+                         <tr>
+                              <td>
+                                   Comments:
+                              </td>
+                              <td>
+                                   <input id="Comments" name="Comments" type="text" />
+                              </td>
+                         </tr>
+                    </table>
+               </form>
+          </dl>
+          <h3>Rating</h3>
+          <script src="../public/rating.js"></script>
+          <div class="wrapper">
+               <a href="javascript:;" class="a-rating"></a>
+               <a href="javascript:;" class="a-rating"></a>
+               <a href="javascript:;" class="a-rating"></a>
+               <a href="javascript:;" class="a-rating"></a>
+               <a href="javascript:;" class="a-rating"></a>
+          </div>
+     </main>
+</div>

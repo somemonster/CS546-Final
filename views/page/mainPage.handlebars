@@ -1,0 +1,26 @@
+<div>
+     <header>
+          <h1>Welcome to the Online Book Store</h1>
+     </header>
+    <script src = "../public/search.js"></script>
+     <form  action="/search"  method="post" id="search_form"> {{! This used for seach book by Title, Author, Publisher, Genre}}
+          <label for="submit">search: </label>
+          <input type="search" name="search" id="input_search">
+          <button type="submit" value="submit" id="button_submit">Submit</button>
+     </form>
+
+<script src = "../public/selectOrder.js"></script>
+<div>
+    <select name="All" id = "select" onchange="select()">
+        <option value="newbooks" id = "newBooks" >new_books</option>
+        <option value="popularBooks" id = "popularBooks">popular_books</option>
+        <option value="average" id = "average">average</option>
+    </select>
+</div>
+     <ul id="bookList"> {{!This will show featured book}} {{#each bookName}}
+          <li>
+               <a href="/booksProfile/{{_id}}">{{Title}}</a>
+          </li>
+          {{/each}}
+     </ul>
+</div>
