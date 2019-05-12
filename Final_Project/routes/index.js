@@ -2,6 +2,8 @@ const signupUser = require("../data/database/storeUsers");
 const express = require("express");
 router = express();
 
+const searchRoutes = require("./search");
+
 router.use(function (req, res, next) {
     let info = '[' + new Date().toUTCString() + ']: ' + req.method + ' ' + req.originalUrl;
     if (req.session.username) {
@@ -135,6 +137,7 @@ router.use(function (req, res, next) {
 
 const method = app => {
     app.use("/", router);
+    app.use("/search", searchRoutes);
     app.use("*", (req, res) => {
         res.status(404);
     })
