@@ -1,0 +1,16 @@
+<div>
+     <form method="post" id="bookSearch"> {{! This used for seach book by Title, Author, Publisher, Genre}}
+          <label for="submit">input</label>
+          <input type="search" name="search" id="search">
+          <button type="submit" value="submit" id="submit">Submit</button>
+     </form>
+     
+     <h2>Searched Result</h2>
+     <ul>                          {{!This will show searched book}}                    
+          {{#each bookname}}
+          <li>
+               <a href="/booksProfile/{{_id}}">{{Tittle}}</a>
+          </li>
+          {{/each}}
+     </ul>
+</div>
