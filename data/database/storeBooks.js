@@ -165,17 +165,17 @@ module.exports = {
         const _conlection = await books();
         var arr2 = await _conlection.find({}).toArray();
         for(var i = 0; i < arr2.length; i++){
-            if(arr2[i].Title == text){
+            if(arr2[i].Title.toLowerCase() == text.toLowerCase()){
                 return arr2[i];
-            }else if(arr2[i].Author_FirstName == text){
+            }else if(arr2[i].Author_FirstName.toLowerCase() == text.toLowerCase()){
                 return arr2[i];
-            }else if(arr2[i].Author_LastName == text){
+            }else if(arr2[i].Author_LastName.toLowerCase() == text.toLowerCase()){
                 return arr2[i];
-            }else if((arr2[i].Author_FirstName + arr2[i].Author_LastName) == text){
+            }else if((arr2[i].Author_FirstName + arr2[i].Author_LastName).toLowerCase() == text.toLowerCase()){
                 return arr2[i];
-            }else if(arr2[i].Publisher == text){
+            }else if(arr2[i].Publisher.toLowerCase() == text.toLowerCase()){
                 return arr2[i];
-            }else if(arr2[i].Genre == text){
+            }else if(arr2[i].Genre.toLowerCase() == text.toLowerCase()){
                 return arr2[i];
             }
         }
