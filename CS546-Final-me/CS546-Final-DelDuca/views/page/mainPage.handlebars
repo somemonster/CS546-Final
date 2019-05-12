@@ -1,0 +1,35 @@
+<div>
+     <header>
+          <h1>It 's Just Books</h1>
+     </header>
+     
+     <div class="searcher">
+
+          <script src = "../public/selectOrder.js"></script>
+          <div>
+               <select name="All" id = "select" onchange="select()">
+                    <option value="newbooks" id = "newBooks" >Newest</option>
+                    <option value="popularBooks" id = "popularBooks">Most Popular</option>    
+               </select>
+          </div>
+          
+          <script src = "../public/search.js"></script>
+          <div>
+          <form  action="/search"  method="post" id="search_form" class="search"> {{! This used for seach book by Title, Author, Publisher, Genre}}
+               <label for="submit">Search: </label>
+               <input type="search" name="search" id="input_search">
+               <button type="submit" value="submit" id="button_submit">Submit</button>
+          </form>
+          </div>
+     </div>
+
+     <div class="booksMain">
+     
+     <ul id="bookList"> {{!This will show featured book}} {{#each bookName}}
+          <li>
+               <a href="/booksProfile/{{_id}}">{{Title}}</a>
+          </li>
+          {{/each}}
+     </ul>
+     </div>
+</div>
