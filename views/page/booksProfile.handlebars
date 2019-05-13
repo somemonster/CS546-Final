@@ -1,0 +1,73 @@
+<div>
+
+     <header>
+          <h1>It 's Just Books</h1>
+     </header>
+
+     <body id="book_body">
+     
+     <main>
+          <dl>
+               <dt id='Title1'>Title:</dt>
+               <dd id='Title2'>{{Title}}</dd>
+               <dt id='First1'>Author First Name:</dt>
+               <dd id='First2'>{{Author_FirstName}}</dd>
+               <dt id='Last1'>Author Last Name:</dt>
+               <dd id='Last2'>{{Author_LastName}}</dd>
+               <dt id='Publisher1'>Publisher:</dt>
+               <dd d='Publisher2'>{{Publisher}}</dd>
+               <dt id='Genre1'>Genre:</dt>
+               <dd id='Genre2'>{{Genre}}</dd>
+               <dt id='AverageRating1'>Average Rating:</dt>
+               <dd id='AverageRating2'>{{averageRating}}</dd>
+               <br>
+               <br>
+               <!-- 我想通过下面button的事件来改变js文件中执行的部分 -->
+               <input id='Recommendations' type="button" value="Recommendations" onclick='javascrtpt:getFamilar()' />
+               <script type="text/javascript">
+                    function getFamilar() 
+                    {
+                         jQuery.get('/booksSuggest/{{_id}}').then(res => location.href = res.target);
+                    }
+               </script>
+               <br>
+               <td id='Comments1'>
+                    Comments:
+               </td>
+               <br>
+               <td>
+                    <textarea id="Comments2" name="Comments" rows="10" cols="50">
+                    </textarea>
+                    <input id="submit" value='submit' type='submit' onclick="javascript:UpdateComments()"/>
+                    <script type="text/javascript">
+                         function UpdateComments()
+                         {
+                            
+                              $.post('/Comments', {
+                              "_id" : $('#bookId').html(),
+                              "comments": $('#Comments').val()
+                              }, function (data) { });
+                              location.reload();
+                         }
+                    </script>
+               </td>
+          </dl>
+          <h3>Rating</h3>
+          <script src="../public/rating.js"></script>
+          <div class="wrapper">
+               <a href="javascript:;" class="a-rating"></a>
+               <a href="javascript:;" class="a-rating"></a>
+               <a href="javascript:;" class="a-rating"></a>
+               <a href="javascript:;" class="a-rating"></a>
+               <a href="javascript:;" class="a-rating"></a>
+          </div>
+          <br>
+          <dt id= 'Comments3'>Comments:</dt>
+          <ul>
+               {{#each Comments}}
+               <li id ='Comments4'>{{this}}</li>
+               {{/each}}
+          </ul>
+     </main>
+     </body>
+</div>

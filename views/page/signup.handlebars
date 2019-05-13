@@ -1,0 +1,66 @@
+<div>
+     <header>
+          <title>Online_Book_Store</title>
+     </header>
+     <footer>
+          <h1>It 's Just Books</h1>
+     </footer>
+
+     <form action="/signup" method="post" onsubmit="return validateForm()">
+          <table border="1" align="center" width="50%">
+               <tr>
+                    <td align="right">
+                         <sup><font color="red">*</font></sup>Username：
+                    </td>
+                    <td><input type="text" name="username" id="username" class="input_class" onblur="checkUsername(this)"
+                         /><span id="username_span">Username must consist of 6 to 15 characters</span></td>
+               </tr>
+
+               <tr>
+                    <td align="right">
+                         <sup><font color="red">*</font></sup>Password：
+                    </td>
+                    <td><input type="password" name="password" id="password" class="input_class" onblur="checkPassword(this)"
+                         /><span id="password_span">Password must consist of 8 to 15 characters</span></td>
+               </tr>
+               <tr>
+                    <td align="right">
+                         <sup><font color="red">*</font></sup>Confirm Password：
+                    </td>
+                    <td><input type="password" name="rePassword" id="rePassword" class="input_class" onblur="checkRePassword(this)"
+                         /><span id="rePassword_span">Password must match the previous password</span></td>
+               </tr>
+
+               <tr>
+                    <td align="right">
+                         <sup><font color="red">*</font></sup>Email：
+                    </td>
+                    <td><input type="text" name="Email" id="Email" class="input_class" onblur="checkEmail(this)" /><span
+                              id="Email_span">format：xxxxxxxx@email.com</span></td>
+               </tr>
+
+               <tr>
+                    <td align="right">
+                         <sup><font color="red">*</font></sup>First Name：
+                    </td>
+                    <td><input type="text" name="firstName" id="firstName" class="input_class" onblur="checkFirstName(this)" /><span
+                              id="firstName_span">First name must be valid characters</span></td>
+               </tr>
+               <tr>
+                    <td align="right">
+                         <sup><font color="red">*</font></sup>Last Name：
+                    </td>
+                    <td><input type="text" name="lastName" id="lastName" class="input_class" onblur="checkLastName(this)" /><span
+                              id="lastName_span">Last name must be valid characters</span></td>
+               </tr>
+               <tr>
+                    <td align="center" colspan="3" class="reg-butts">
+                         <button type="submit" class="aaa" value="Register">Register</button>
+                         <button type="reset" class="aaa" value="Reset">Reset</button>
+                         <button type = "back" value = "back" id = "back"><a href="/" class="a-back">Back </a></button>
+                    </td>
+               </tr>
+          </table>
+     </form>
+     
+</div>

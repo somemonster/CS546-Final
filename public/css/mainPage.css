@@ -1,0 +1,97 @@
+.searcher {
+    display: flex;
+    justify-content: space-around;
+}
+
+.booksMain {
+    display: flex;
+    justify-content: space-between;
+}
+
+select {
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: auto;
+    background-color: #F55050;
+    color: #ffffff;
+    border: none;
+    padding: 6px 16px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.search {
+    margin: auto;
+}
+
+h1 {
+    padding: 45px;
+    text-align: center;
+    /*background: #F55050;
+    color: #ffffff; */
+    color: #F55050;
+    background: #ffffff;
+    border-bottom: 5px solid #F55050;
+    font-size: 80px;
+    font-family: "Great Vibes", cursive;
+}
+
+form {
+    width: 98%;
+    padding: 10px;
+}
+
+label {
+    font-size: 20px;
+}
+
+input {
+    padding: 8px;
+    margin: 8px;
+}
+
+.a-signup {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.a-back {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.reg-butts {
+    padding: 10px;
+}
+
+.log-con {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+.log-butts {
+    display: flex;
+    align-content: space-around;
+    padding-top: 10px;
+}
+
+button {
+    background-color: #F55050;
+    color: #ffffff;
+    border: none;
+    padding: 6px 16px;
+    text-align: center;
+    font-size: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.a-rating {
+    float: left;
+    width: 26px;
+    height: 20px;
+    background: url(../material/star.png) 0 -20px no-repeat;
+}
