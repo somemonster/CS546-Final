@@ -80,7 +80,7 @@ router.get('/booksSuggest/:id',async(req,res)=>{
     //console.log(book_1)
     var book_2 = await book.getFamiliar(book_1);
     //console.log(book_2)
-    res.json({'target': book_2._id});
+    res.json({'target': "/booksProfile/" + book_2._id});
 })
 
 router.post('/Rating', async (req, res) =>{
@@ -101,6 +101,9 @@ router.post('/select', async (req, res) =>{
         var arr = await book.select(req.body._id);
         // console.log(arr)
         res.json(arr);
+        // res.render("page/mainPage", {
+        // bookName : arr
+        // })
     }catch(errorMessage){
         res.status(500).json({
             error : errorMessage
