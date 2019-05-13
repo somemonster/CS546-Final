@@ -1,0 +1,12 @@
+#error_body{
+
+    background-image: url(../material/error.jpg); /*http://www.16pic.com/web/pic_5793087.html*/
+
+    background-size: cover;
+}
+
+#error_back
+{
+    text-align: center; 
+}
+

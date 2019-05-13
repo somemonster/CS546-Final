@@ -1,11 +1,11 @@
-<div>
+<body class = "mainpage_body">
      <header>
           <h1 id= 'Welcome1'>Welcome to the Online Book Store</h1>
      </header>
     <script src = "../public/search.js"></script>
      <form  action="/search"  method="post" id="search_form"> {{! This used for seach book by Title, Author, Publisher, Genre}}
           <label id="search" for="submit">search: </label>
-          <input type="search" name="search" id="input_search">
+          <input type="search" name="search" id="input_search" value="Please input whole name of book ">
           <button type="submit" value="submit" id="button_submit">Submit</button>
      </form>
 
@@ -18,9 +18,11 @@
     </select>
 </div>
      <ul id="bookList"> {{!This will show featured book}} {{#each bookName}}
-          <li>
+          <li id="booklist2">
                <a href="/booksProfile/{{_id}}">{{Title}}</a>
           </li>
           {{/each}}
      </ul>
 </div>
+</body>
+

@@ -1,17 +1,25 @@
 <div>
+     <body id="login_body">
+     <div >
      <header>
-          <title id="bookstore">Online_Book_Store</title>
+          <title>Online Book Store</title>
      </header>
+     </div>
      <footer>
-          <h1 id="Welcome" >Welcome to the Online_Book_Store</h1>
+          <h1 id="Welcome" >Welcome to the Online Book Store</h1>
      </footer>
      <form method = "post" id = "formLogin" action = "/login">
-          <label id="name" for = "submit">name:    </label>
-          <input name = "username" id = "username">    <br>
-          <label id="password" for = "submit">password: </label>
-          <input name = "password" id = "password">    <br>
-          <button type = "submit" value = "submit" id = "submit">Submit</button>
+          <label id="username" for = "submit">Username:    </label>
+          <input name = "username" id = "username">
+          <br>
+          <br>
+          <label id="password" for = "submit">Password: </label>
+          <input name = "password" id = "password">    
+          <br>
+          <br>
+          <button type = "submit" value = "submit" id = "login_submit" >Submit</button>
+          <input id="login_signup" type = "button" value="SignUp" onclick="javascrtpt:window.location.href='/signup'">
      </form>
-
-     <a id= "signup" href = "/signup"> signup</a>
+     <br> 
+     </body>
 </div>

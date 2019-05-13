@@ -1,12 +1,55 @@
 select{
      border: none;
      outline: none;
-     width: 100%;
-     height: 40px;
-     line-height: 40px;
+     width: 15%;
+     height: 25px;
+     line-height: 20px;
      appearance: none;
      -webkit-appearance: none;
      -moz-appearance: none;
-     padding-left: 60px;
+     padding-left: 10px;
  }
+
+.mainpage_body{
+
+    background-image: url(../material/login.jpeg);
+
+    background-size: cover;
+}
+
+#Welcome1
+{
+    font-family:"微软雅黑";
+    font-size:40px;
+    color: rgba(0, 0, 0, 0.863);
+    text-align: center;
+}
+
+#bookList
+{
+    text-align: left;
+    color: rgba(0, 0, 0, 0.863);
+    font-size:20px;
+}
+
+#search
+{
+    font-family:"微软雅黑";
+    font-size:25px;
+    color: rgba(0, 0, 0, 0.863);
+}
+
+#input_search
+{
+    width: 50%;
+    font-size:20px;
+    height: 28px;
+}
+
+#button_submit
+{
+    width: 80px;
+    height: 28px;
+}
+
 

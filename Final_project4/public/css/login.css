@@ -1,0 +1,45 @@
+#login_body{
+
+    background-image: url(../material/login.jpeg);
+
+     background-size: cover;
+}
+
+#Welcome
+{
+    font-family:"微软雅黑";
+    font-size:60px;
+    color: rgba(0, 0, 0, 0.863);
+    text-align: center;
+}
+
+#formLogin
+{
+    text-align: center;
+}
+
+#username
+{
+    font-family:"微软雅黑";
+    font-size:20px;
+    color: rgba(0, 0, 0, 0.863);
+}
+
+#password
+{
+    font-family:"微软雅黑";
+    font-size:20px;
+    color: rgba(0, 0, 0, 0.863);
+}
+
+#login_submit
+{
+    width: 80px;
+    
+}
+
+#login_signup
+{
+    width: 80px;
+}
+

@@ -1,0 +1,13 @@
+.caption
+{    
+    font-family:"微软雅黑";
+    font-size:40px;
+    text-align: center;
+}
+
+.signup_body{
+    background-image: url(../material/signup.jpeg);  /*reference：http://www.sohu.com/a/193562206_461908 */
+
+     background-size: cover;
+}
+
