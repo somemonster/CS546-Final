@@ -2,25 +2,34 @@ const bookData = require("./storeBooks");
 // const RecData = require("./Recommendation");
 // const comData = require("./comments");43
 async function dojj() {
-    await bookData.CreateBook("A Song of Ice and Fire", "George", "Martin", "John Doe", "High Fantasy", 1, 2000);
-    await bookData.CreateBook("A Song of Ice and Fire2", "George", "Martin", "John Doe", "High Fantasy", 1, 2002);
-    await bookData.CreateBook("The Problems of Philosophy", " Bertrand", "Russell", "Jack", "Literary Fiction", 1, 2010);
+    await bookData.CreateBook("A Song of Ice and Fire", "/covers/IceandFireCover.jpg", "George", "Martin", "Bantam Books", "Fantasy", 1, 1996);
+    await bookData.CreateBook("The Great Gatsby", "covers/GatsbyCover.jpg", "F. Scott", "Fitzgerald", "Charles Scribner's Sons", "Historical Fiction", 1, 1925);
+    await bookData.CreateBook("The Grapes of Wrath", "covers/GrapesCover.jpg", "John", "Steinbeck", "The Viking Press", "Historical Fiction", 1, 1939);
+    await bookData.CreateBook("Nineteen Eighty-Four","covers/1984Cover.jpg", "George", "Orwell", "Secker & Warburg", "Science Fiction", 1, 1949);
+    await bookData.CreateBook("Ulysses", "covers/UlyssesCover.jpg", "James", "Joyce", "Sylvia Beach", "Literary Fiction", 1, 1922);
+    await bookData.CreateBook("Lolita", "covers/LolitaCover.jpg", "Vladimir", "Nabokov", "Olympia Press", "Romance", 1, 1955);
+    await bookData.CreateBook("Catch-22", "covers/Catch22Cover.jpg", "Joseph", "Heller", "Simon & Schuster", "Historical Fiction", 1, 1961);
+    await bookData.CreateBook("The Catcher in the Rye", "covers/RyeCover.jpg", "J.D.", "Sallinger", "Little, Brown and Company", "Young Adult", 1, 1951);
+    await bookData.CreateBook("To Kill a Mockingbird", "covers/MockingbirdCover.jpg", "Harper", "Lee", "J.B. Lippincott & Co.", "Fiction", 1, 1960);
+    await bookData.CreateBook("The Lord of the Rings", "covers/LOTRCover.jpg", "J. R. R.", "Tolkien", "Allen & Unwin", "Fantasy", 1, 1954);
+    await bookData.CreateBook("Gone with the Wind", "covers/WindCover.jpg", "Margaret", "Mitchell", "Macmillan Publishers", "Historical Fiction", 1, 1936);
+    await bookData.CreateBook("Pride and Prejudice", "covers/PrideCover.jpg", "Jane", "Austen", "T. Egerton", "Romance", 1, 1813);
+
+
+
+    
     await bookData.CreateBook("Gulliver's Travels into Several Remote Nations of the World", "Jonathan", "Swift", "Bob", "Historical Fiction", 1, 2008);
     await bookData.CreateBook("The Vampyre", "John William", "Polidori", "Bill", "Horror", 1, 2007);
     await bookData.CreateBook("The Strange Case of Dr Jekyll and Mr. Hyde Study Guide 3", "James", "Del Mcjones", "Diao", "Horror", 1, 1994);
     await bookData.CreateBook("Antic Hay", "Aldous", "Huxley", "William", "Psychology", 1, 2007);
     await bookData.CreateBook("Poems", "Victor", "Hugo", "Mike", "Poetry", 1, 1999);
-    await bookData.CreateBook("The Great Gatsby", "F. Scott", "Fitzgerald", "Charles Scribner's Sons", "Historical Fiction", 1, 1925);
-    await bookData.CreateBook("The Grapes of Wrath", "John", "Steinbeck", "The Viking Press", "Historical Fiction", 1, 1939);
-    await bookData.CreateBook("Nineteen Eighty-Four", "George", "Orwell", "Secker & Warburg", "Science Fiction", 1, 1949);
-    await bookData.CreateBook("Ulysses", "James", "Joyce", "Sylvia Beach", "Literary Fiction", 1, 1922);
-    await bookData.CreateBook("Lolita", "Vladimir", "Nabokov", "Olympia Press", "Romance", 1, 1955);
-    await bookData.CreateBook("Catch-22", "Joseph", "Heller", "Simon & Schuster", "Fiction", 1, 1961);
-    await bookData.CreateBook("The Catcher in the Rye", "J.D.", "Sallinger", "Little, Brown and Company", "Young Adult", 1, 1951);
-    await bookData.CreateBook("To Kill a Mockingbird", "Harper", "Lee", "J.B. Lippincott & Co.", "Fiction", 1, 1960);
-    await bookData.CreateBook("The Lord of the Rings", "J. R. R.", "Tolkien", "Allen & Unwin", "Fantasy", 1, 1954);
-    await bookData.CreateBook("Gone with the Wind", "Margaret", "Mitchell", "Macmillan Publishers", "Historical Literary", 1, 1936);
-    await bookData.CreateBook("Pride and Prejudice", "Jane", "Austen", "T. Egerton", "Romance", 1, 1813);
+    
+    
+    
+    
+    
+    
+    
     await bookData.CreateBook("Lord of the Flies", "William", "Golding", "Faber and Faber", "Literary Fiction", 1, 1954);
     await bookData.CreateBook("Wuthering Heights", "Emily", "Bronte", "Thomas Cautley Newby", "Romance", 1, 1847);
     await bookData.CreateBook("Slaughterhouse-Five", "Kurt", "Vonnegut", "Delacorte", "Science Fiction", 1, 1969);

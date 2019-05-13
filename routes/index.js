@@ -80,7 +80,7 @@ router.get('/booksSuggest/:id',async(req,res)=>{
     //console.log(book_1)
     var book_2 = await book.getFamiliar(book_1);
     //console.log(book_2)
-    res.json({'target': book_2._id});
+    res.json({'target': "/booksProfile/"+book_2._id});
 })
 
 router.post('/Rating', async (req, res) =>{
@@ -92,6 +92,16 @@ router.post('/Rating', async (req, res) =>{
         res.status(500).json({
             error : errorMessage
         });
+    }
+})
+
+router.post('/Comments', async (req,res) =>{
+    try{
+        book.updateComments(req.body._id,req.body.comments)
+    }catch(errorMessage){
+        res.status(500).json({
+            errorMessage
+        })
     }
 })
 

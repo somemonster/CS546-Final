@@ -130,6 +130,21 @@ module.exports = {
         return await this.getBookById(id);
 
     },
+    
+    async updateComments(id,comments)
+      {
+        if(!id) throw "You need to give an id";
+        if(!/^[a-fA-F0-9]{24}$/.test(id)) throw "The id need to be ObjectId";
+        if(!comments|| typeof comments !="string") throw "You need to give a new Comments and the type of Comments need to be string";
+        const _conlection = await books();
+        var bookComments = await this.getBookById(id);
+        bookComments.Comments.push(comments);
+        let updateComments = {$set:{"Comments":bookComments.Comments}};
+        const updateInfo = await _conlection.updateOne({_id: ObjectId(id)},updateComments);
+        if(updateInfo.updatedCount == 0) throw "update rating unsuccessfully";
+
+        return await this.getBookById(id);
+      },
 
     async select(id) {
         // console.log(id)
@@ -165,17 +180,17 @@ module.exports = {
         const _conlection = await books();
         var arr2 = await _conlection.find({}).toArray();
         for(var i = 0; i < arr2.length; i++){
-            if(arr2[i].Title == text){
+            if(arr2[i].Title.toLowerCase() == text.toLowerCase()){
                 return arr2[i];
-            }else if(arr2[i].Author_FirstName == text){
+            }else if(arr2[i].Author_FirstName.toLowerCase() == text.toLowerCase()){
                 return arr2[i];
-            }else if(arr2[i].Author_LastName == text){
+            }else if(arr2[i].Author_LastName.toLowerCase() == text.toLowerCase()){
                 return arr2[i];
-            }else if((arr2[i].Author_FirstName + arr2[i].Author_LastName) == text){
+            }else if((arr2[i].Author_FirstName + arr2[i].Author_LastName).toLowerCase() == text.toLowerCase()){
                 return arr2[i];
-            }else if(arr2[i].Publisher == text){
+            }else if(arr2[i].Publisher.toLowerCase() == text.toLowerCase()){
                 return arr2[i];
-            }else if(arr2[i].Genre == text){
+            }else if(arr2[i].Genre.toLowerCase() == text.toLowerCase()){
                 return arr2[i];
             }
         }
