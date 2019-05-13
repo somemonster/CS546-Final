@@ -2,52 +2,74 @@ const express = require("express");
 const router = express.Router();
 const searchData = require("../search.js");
 
-router.post('/mainPage', async (req, res) => {
+router.post('/search', async (req, res) => {
 
     const {search} = req.body;
   
     if (search){
-        const search = users.find(user => user.username === username);
-        var match;
+        const search = searchData.find(search => search === search);
+
+        var id = [];
+        var x = 0;
     
-        console.log(user)
-        if (user){
+        console.log(search)
+        if (search){
             try {
-                match = await bcrypt.compare(password, user.hashedPassword);
+                for (var i = 1; i < data.length; i++){
+                    if (searchData[i].Title === search){
+                        id[x] = data[i].id;
+                        x++;
+                        continue;
+                    }
+                    else if (searchData[i].Author_FirstName === search){
+                        id[x] = data[i].id;
+                        x++;
+                        continue;
+                    }
+                    else if (searchData[i].Author_LastName === search){
+                        id[x] = data[i].id;
+                        x++;
+                        continue;
+                    }
+                    else if (searchData[i].Publisher === search){
+                        id[x] = data[i].id;
+                        x++;
+                        continue;
+                    }
+                    else if (searchData[i].Genre === search){
+                        id[x] = data[i].id;
+                        x++;
+                        continue;
+                    }
+                    else if (searchData[i].Published === search){
+                        id[x] = data[i].id;
+                        x++;
+                        continue;
+                    }
+                    else {
+                        res.status(401).render('search', {error_message: "No Result Found"});
+                    }
+
+                    if (id.length == null || id.length == undefined){
+                        res.status(401).render('search', {error_message: "No Result Found"});
+                    }
+                    else {
+                        return id;  //returns a list of id's;
+                    }
+
+                }
             } catch (e) {
-                console.log(e);
-            }
-  
-            if (match){
-                res.cookie("AuthCookie");
-                req.session.user = user;
-                res.redirect('/private');
-            }
-            else {
-                res.status(401).render('login', {error_message: "Enter a Valid Password",  hasErrors: true});
+                res.status(401).render('search', {error_message: "No Result Found"});
             }
         }
-        
-        else {
-            res.status(401).render('login', {error_message: "Username Not Found",  hasErrors: true})
-        }
+        // else {
+        //     res.status(401).render('search', {error_message: "Result Not Found"})
+        // }
     }
-    
     else {
-        res.status(401).render('login', {error_message: "Username or Password Not Provided",  hasErrors: true})
+        res.status(401).render('search', {error_message: "Please Provide Something For Search"})
     }
 
-});
-
-router.get("/search", async (req, res) => {
-
-    var 
-    try {
-        const person = await searchData.getPersonById(parseInt(req.params.id,10));
-        res.json(person);
-    } catch (e) {
-        res.status(404).json({ message: "not found!" });
-    }
 });
 
 // router.get("/search", async (req, res) => {

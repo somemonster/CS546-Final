@@ -302,7 +302,6 @@ async function getIdByAuthor(author){
             validId = data[i].id;
             return validId;
         }
-        //Need to check the input of the author variable!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
     }
 
     throw "Error! Author not found!";
