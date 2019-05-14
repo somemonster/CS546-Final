@@ -4,6 +4,8 @@ const express = require("express");
 const Select = require("../public/selectOrder");
 router = express();
 
+const searchRoutes = require('.');
+
 router.use(function (req, res, next) {
     let info = '[' + new Date().toUTCString() + ']: ' + req.method + ' ' + req.originalUrl;
     if (req.session.username) {
