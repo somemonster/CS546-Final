@@ -66,6 +66,11 @@ input {
     padding: 10px;
 }
 
+.error {
+    color: #da0000;
+    font-size: 15px;
+}
+
 .log-con {
     display: flex;
     flex-direction: column;

@@ -30,9 +30,7 @@ router.use(async function (req, res, next) {
         try {
             // console.log(req.body.username + '    ' + req.body.password)
             if (!(req.body.username && req.body.password)) {
-                res.status(401).render("page/error", {
-                    error: "You must input userName and password!"
-                });
+                res.status(401).render("page/login", {invalid_login: "Error: You must enter a username and password."})
                 return;
             }
             let username = req.body.username;
@@ -40,9 +38,7 @@ router.use(async function (req, res, next) {
             let log = await signupUser.judge(username, password);       //
             // console.log(log);
             if (!log) {
-                res.status(401).render("page/error", {
-                    error: "No any matched user!"
-                });
+                res.status(401).render("page/login", {invalid_login: "Error: Invalid username and password combination."})
                 return;
             } else {
                 req.session.username = username;
@@ -54,9 +50,8 @@ router.use(async function (req, res, next) {
             }
         } catch (errorMessage) {
             // console.log(errorMessage)
-            res.status(500).json({
-                error: errorMessage
-            });
+            
+            res.status(500).render("page/login", {invalid_login: errorMessage})
         }
     } else {
         next();

@@ -5,7 +5,9 @@
      <footer>
           <h1>It 's Just Books</h1>
      </footer>
-    
+     {{#if invalid_login}}
+          <div class="error">{{invalid_login}}</div> <br>
+     {{/if}}
      <form method = "post" id = "formLogin" action = "/login">
 
      <div class="log-con">
